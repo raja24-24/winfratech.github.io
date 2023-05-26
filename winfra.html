@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wght@8..144,300;8..144,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="winfra.css" />
+
+
+  </head>
+  <body>
+    <div class="container">
+      <form autocpmplete = "off"method="post " name = "googlesheet">
+        <div id="titleBar">
+          <div id="title">
+            Training Registration Page
+          </div>
+        </div>
+        <div class="grid">
+            <label for="name"><span class="star">*</span>Name:</label>
+          <div class="wrap name">
+            <div class="wrapCol" id="firstName">
+              <input type="text" placeholder="First Name" name="firstName" required />
+              <div class="error"></div>
+            </div>
+
+            <div class="wrapCol" id="lastName">
+              <input type="text" placeholder="Last Name" name = "lastName" required />
+              <div class="error"></div>
+            </div>
+          </div>
+
+             <!-- PhoneNumber -->          
+         <label for="Phone_Number"><span class="star">*</span>Phone Number:</label>
+         <div class="wrap" id="Phone_Number">
+             <input type="number" placeholder="Enter your Phone Number" name="Phone_Number" required/>
+           
+         </div>
+         
+         <!-- email -->
+         <label for="email"><span class="star">*</span>Email:</label>
+         <div class="wrap" id="email">
+             <input type="email" name="email" placeholder="Enter your Email" required/>
+             
+         </div>
+
+           <!-- Department -->
+         <label for="department">Department: </label>
+         <div class="wrap" id="select">
+           <select name="department" id="department" required>
+             <option value="no">Select your Branch</option>
+             <option value="CSE">CSE</option>
+             <option value="MECH">MECH</option>
+             <option value="ECE">ECE</option>
+             <option value="BIOMED">BIOMED</option>
+           </select>
+           
+         </div>
+
+         
+           <!-- State -->
+           <label for="State"><span class="star">*</span>State: </label>
+           <div class="wrap" id="select">
+             <select name="State" id="State" required>
+               <option value="no">Select your State</option>
+               <option value="Andhra Pradesh">Andhra Pradesh</option>
+               <option value="Telangana">Telangana</option>
+               <option value="Kerala">Kerala</option>
+               <option value="Tamil Nadu">Tamil Nadu</option>
+               
+             </select>
+             
+           </div>
+
+
+         <!--Year of Graduation -->
+         <label for="yearOfGraduation">Year of Graduation:</label>
+         <div class="wrap" id="yearOfGraduation" >
+             <input type="date" placeholder="Enter your Year of Graduation" name="yearOfGraduation" required/>
+             
+         </div>
+
+            <!--Year of Experiance -->
+           <label for="yearOfexperience">Year of Experience:</label>
+           <div class="wrap" id="yearOfexperience" >
+               <input type="number" placeholder="Enter your Year of Experiance" name="yearOfexperience" required/>
+                       
+           </div>
+
+          <!--College -->
+           <label for="College">College:</label>
+           <div class="wrap" id="College" >
+           <input type="text" placeholder="Enter your College" name="College" required/>
+            
+          </div>
+           
+           <!--Program -->
+           <label for="Program">Program:</label>
+           <div class="wrap" id="Program" >
+           <input type="text" placeholder="Enter your Program" name="Program" required/>
+                      
+           </div>
+
+
+
+          <div id="submit">
+            
+
+              <button type="submit" id="submitButton"  name="submit" data-modal-target=".confirm_container">Submit</button>
+            
+              <!--button onclick="SubForm()">Submit</button-->
+          </div>
+        </form>
+        </div>
+        
+            <script>
+              const scriptURL = "https://script.google.com/macros/s/AKfycbySaayLsL6RJtTuhB0pInuieq_sXwmhr-zKyel8NZihPDn7KhRuxQdEPS81VWzjaHVGFQ/exec"
+              const form = document.forms['googlesheet']
+
+              
+
+              form.addEventListener('submit', e =>  {
+                e.preventDefault()
+                fetch(scriptURL,{ method: 'POST',body: new FormData(form) })
+                   .then(response => window.location.href="winfra2.html")
+                   .catch(error => console.error('Error!',error.message))
+              })
+            </script>
+            
+   </body>
+</html>
